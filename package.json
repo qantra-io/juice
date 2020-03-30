@@ -1,0 +1,26 @@
+{
+  "name": "qantra-juice",
+  "version": "1.0.0",
+  "description": "Generate random combinations from pre-defined character sets",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qantra-io/juice.git"
+  },
+  "keywords": [
+    "random",
+    "combinations",
+    "generate",
+    "predefined",
+    "sets"
+  ],
+  "author": "Qantra.io Bahi Hussein",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qantra-io/juice/issues"
+  },
+  "homepage": "https://github.com/qantra-io/juice#readme"
+}
