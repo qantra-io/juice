@@ -2,10 +2,11 @@
 
 class Juice {
 
-  constructor(sets, combos) {
+  constructor(sets={}, combinations={}, models={}) {
 
     this.sets = sets;
-    this.combos = combos;
+    this.combinations = combinations;
+    this.models = models;
 
   }
 
@@ -19,14 +20,6 @@ class Juice {
 
   }
 
-  /**
-  @param { Number } theNumber a number that want to be splited to more than segment
-  for example for split 10 for 3 segment you will get array of [3,3,4] making a total of 10
-  @param { Number } segments the number of segments that needs to be outputed
-
-  @return { [ Number ] } an array of segments example splitNumber(100,7)
-  will output [ 14, 14, 14, 14, 14, 14, 16 ]
-  */
   splitNumber(theNumber, segments) {
 
     let crumbs = [];
@@ -44,33 +37,60 @@ class Juice {
 
   generate(type, length) {
 
-    let compo = this.combos[type];
-    if (compo) {
-
-      let segments = compo.length;
+    let comb = this.combinations[type];
+    if (comb) {
+      let segments = comb.length;
       let crumbs = this.splitNumber(length, segments);
       let childRandoms = '';
 
-      for (let i = 0; i < compo.length; i++) {
+      for (let i = 0; i < comb.length; i++) {
 
-        let set = this.sets[compo[i]];
-
+        let set = this.sets[comb[i]];
         if (set) {
           childRandoms += (this.random(set, crumbs[i]));
         } else {
-          throw Error(`Unable to find set: ${compo[i]}`);
+          throw Error(`Unable to find set: ${comb[i]}`);
         }
-
       }
-
       return this.random(childRandoms, length);
 
     } else {
 
-      throw Error(`Unable to find compo type: ${type}`);
+      throw Error(`Unable to find comb type: ${type}`);
 
     }
 
+  }
+
+  model(modelName){
+    let model = this.models[modelName];
+    let result = '';
+    if(model){
+      model.map((i)=>{
+
+        switch(true){
+
+          case (Object.prototype.toString.call(i)==='[object Object]'):
+            let k = Object.keys(i)[0];
+            result += this.generate(k, i[k]);
+            break;
+          case (typeof i === 'string'):
+            result += i;
+            break;
+          case Array.isArray(i):
+            result += i[Math.floor(Math.random() * i.length)].toString();
+            break;
+          default:
+            throw Error(`Unable to process value ${i}`);
+
+        }
+
+      })
+      return result;
+
+    } else {
+      throw Error(`Unable to find model name: ${modelName}`);
+    }
   }
 
 }

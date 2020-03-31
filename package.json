@@ -1,6 +1,6 @@
 {
   "name": "qantra-juice",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Generate random combinations from pre-defined character sets",
   "main": "index.js",
   "scripts": {
