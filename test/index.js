@@ -42,5 +42,11 @@ describe('Juice', function() {
       expect(text).to.match(/^[a-z]{12}$/);
       done();
     });
+    it('should return uppercase length 12', function(done) {
+      let text = juice.generate('uppercase',12);
+      debug('text', text);
+      expect(text).to.match(/^[A-Z]{12}$/);
+      done();
+    });
   });
 });
