@@ -4,7 +4,7 @@
   "description": "Generate random combinations from pre-defined character sets",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,9 @@
   "bugs": {
     "url": "https://github.com/qantra-io/juice/issues"
   },
-  "homepage": "https://github.com/qantra-io/juice#readme"
+  "homepage": "https://github.com/qantra-io/juice#readme",
+  "devDependencies": {
+    "expect.js": "^0.3.1",
+    "mocha": "^7.1.1"
+  }
 }
