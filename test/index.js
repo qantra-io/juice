@@ -32,20 +32,27 @@ const models = {
   ]
 }
 
+//creating new juice instance
 let juice = new Juice(sets, combos, models);
 
 describe('Juice', function() {
   describe('#generate', function() {
     it('should return lowercase length 12', function(done) {
       let text = juice.generate('lowercase',12);
-      debug('text', text);
+      debug(text);
       expect(text).to.match(/^[a-z]{12}$/);
       done();
     });
     it('should return uppercase length 12', function(done) {
       let text = juice.generate('uppercase',12);
-      debug('text', text);
+      debug(text);
       expect(text).to.match(/^[A-Z]{12}$/);
+      done();
+    });
+    it('should return alpha numeric length 12', function(done) {
+      let text = juice.generate('alpha-numeric',12);
+      debug(text);
+      expect(text).to.match(/^[a-zA-Z0-9]{12}$/);
       done();
     });
   });
