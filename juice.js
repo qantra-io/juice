@@ -34,6 +34,9 @@ class Juice {
     return crumbs;
 
   }
+  // CUMBS IS AN ARRAY CONTAINS THE VALUE OF DIGITS
+  //WILL BE TAKEN FROM EACH SET AND
+  //THE RIMINDER WILL BE ADDED TO THE LAST ONE
 
   generate(type, length) {
 
