@@ -95,7 +95,7 @@ describe('Juice', function() {
       expect(text).to.match(/^[A-Za-z]{6}$/);
       done();
     });
-    it('should return error', function(done) {
+    it('should return error for undifined combinations', function(done) {
       let text = null;
       try {
       text = juice.generate('upper',6);
