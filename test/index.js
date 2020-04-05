@@ -96,10 +96,14 @@ describe('Juice', function() {
       done();
     });
     it('should return error', function(done) {
-      let text = juice.generate('upper',6);
+      let text = null;
+      try {
+      text = juice.generate('upper',6);
+    } catch{(err)=>{}
       debug(text);
-      expect(text).to.match(/^[A-Za-z]{6}$/);
+      expect(text).to.be.null;
       done();
+    }
     });
   });
 });
@@ -135,12 +139,6 @@ describe('Juice', function() {
       let text = juice.model('emoj');
       debug(text);
       expect(text).to.match(/^[a-z:(:)]/);
-      done();
-    });
-    it('should return alpha numeric length 5', function(done) {
-      let text = juice.generate('alpha-numeric',5);
-      debug(text);
-      expect(text).to.match(/^[a-zA-Z0-9]{5}$/);
       done();
     });
   });
