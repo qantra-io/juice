@@ -32,7 +32,7 @@ const models = {
   ]
 }
 
-//creating new juice instance
+//
 let juice = new Juice(sets, combos, models);
 
 describe('Juice', function() {
@@ -49,10 +49,10 @@ describe('Juice', function() {
       expect(text).to.match(/^[A-Z]{12}$/);
       done();
     });
-    it('should return alpha numeric length 12', function(done) {
-      let text = juice.generate('alpha-numeric',12);
+    it('should return alpha numeric length 5', function(done) {
+      let text = juice.generate('alpha-numeric',5);
       debug(text);
-      expect(text).to.match(/^[a-zA-Z0-9]{12}$/);
+      expect(text).to.match(/^[a-zA-Z0-9]{5}$/);
       done();
     });
   });
